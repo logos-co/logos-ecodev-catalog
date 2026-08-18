@@ -24,28 +24,24 @@ individual catalogs, keeping only apps that are actively maintained.
 
 | App | What it does | Maintainer | Source |
 | --- | --- | --- | --- |
-| Stash | Store files in Logos Storage, get a CID back | Alisher | [`xAlisher/stash-basecamp`](https://github.com/xAlisher/stash-basecamp) |
-| Beacon | Inscribe CIDs on the Logos blockchain | Alisher | [`xAlisher/beacon-basecamp`](https://github.com/xAlisher/beacon-basecamp) |
-| Keeper | Preserve Internet Archive collections to Storage + chain | Alisher | [`xAlisher/keeper-basecamp`](https://github.com/xAlisher/keeper-basecamp) |
-| Cord | Subscribe to zone channels, discover inscriptions | Alisher | [`xAlisher/cord-basecamp`](https://github.com/xAlisher/cord-basecamp) |
 | Keycard | Keycard smartcard authentication | Alisher | [`xAlisher/keycard-basecamp`](https://github.com/xAlisher/keycard-basecamp) |
-| Receiver | Listen-only decentralised radio over Logos Messaging | Alisher | [`xAlisher/receiver-basecamp`](https://github.com/xAlisher/receiver-basecamp) |
-| IA | Sovereign archive follower & preservation | Alisher | [`xAlisher/ia-basecamp`](https://github.com/xAlisher/ia-basecamp) |
 | Soulseek | Soulseek music search & playlists (core + UI) | Alisher / Dario | [`xAlisher/soulseek-basecamp`](https://github.com/xAlisher/soulseek-basecamp), [`xAlisher/soulseek-ui`](https://github.com/xAlisher/soulseek-ui) |
+| Booth | Anonymous sovereign radio over Tor (core + UI) | Alisher | [`xAlisher/booth-basecamp`](https://github.com/xAlisher/booth-basecamp) |
 | Hello | Minimal universal module + QML UI; proves the release path | Dario | [`dlipicar/logos-hello-module`](https://github.com/dlipicar/logos-hello-module), [`dlipicar/logos-hello-ui`](https://github.com/dlipicar/logos-hello-ui) |
-| Snake | Snake game UI module | Alisher | [`xAlisher/logos-snake-game`](https://github.com/xAlisher/logos-snake-game) |
 | LEZ Faucet | Request a 150 LEZ testnet drop (core + UI) | Danish | [`logos-co/lez-faucet`](https://github.com/logos-co/lez-faucet) |
 | Atomic Swaps | ETH ↔ LEZ atomic swaps on the LEZ testnet (core + UI) | Danish | [`logos-co/eth-lez-atomic-swaps`](https://github.com/logos-co/eth-lez-atomic-swaps) |
-| Booth | Anonymous sovereign radio over Tor (core + UI) | Alisher | [`xAlisher/booth-basecamp`](https://github.com/xAlisher/booth-basecamp) |
 
-The last three are multi-module repos (their `metadata.json` files live
-one directory down); releasing them from a catalog needs
+Faucet, Swaps, and Booth are multi-module repos (their `metadata.json`
+files live one directory down); releasing them from a catalog needs
 [logos-modules-release-action#16](https://github.com/logos-co/logos-modules-release-action/pull/16)
 — until it lands their release workflows fail at checkout. Everything
 else releases today.
 
 ### Not included
 
+- Deliberately lean for now — Alisher's other basecamp apps (stash,
+  beacon, keeper, cord, ia, receiver, snake) were trimmed to his top
+  three; add any back with `add-module.sh` when wanted.
 - **Node Remote** ([`xAlisher/node-remote`](https://github.com/xAlisher/node-remote))
   — no buildable module at its root or one level down; it's a
   multi-component repo (`node-remote-bc/`, `node-remote-android/`).
