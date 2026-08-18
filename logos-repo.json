@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "name": "logos-ecodev-apps",
+  "displayName": "Logos Eco Dev Sample Apps",
+  "description": "Sample apps built and actively maintained by the Logos Ecosystem Development team, aggregated from the team's individual catalogs into one repository URL.",
+  "homepage": "https://github.com/logos-co/logos-ecodev-catalog",
+  "indexUrl": "https://github.com/logos-co/logos-ecodev-catalog/releases/download/index/index.json",
+  "trustedSigners": []
+}

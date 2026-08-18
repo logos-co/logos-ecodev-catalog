@@ -1,0 +1,52 @@
+; Module submodule set for this catalog.
+;
+; This file starts empty. Add each module you want to publish as a git
+; submodule under `submodules/`. The easiest way is the helper script,
+; which also generates the matching per-module release workflow:
+;
+;   ./scripts/add-module.sh https://github.com/<owner>/<repo>
+;
+; or, by hand:
+;
+;   git submodule add https://github.com/<owner>/<repo> submodules/<repo>
+;
+; `release-all.yml` discovers modules by reading the `path = submodules/*`
+; entries in this file, so you never maintain a build matrix by hand.
+;
+; After cloning a fork, materialise the submodule working trees with:
+;
+;   git submodule update --init --recursive
+[submodule "submodules/stash-basecamp"]
+	path = submodules/stash-basecamp
+	url = https://github.com/xAlisher/stash-basecamp
+[submodule "submodules/beacon-basecamp"]
+	path = submodules/beacon-basecamp
+	url = https://github.com/xAlisher/beacon-basecamp
+[submodule "submodules/keeper-basecamp"]
+	path = submodules/keeper-basecamp
+	url = https://github.com/xAlisher/keeper-basecamp
+[submodule "submodules/cord-basecamp"]
+	path = submodules/cord-basecamp
+	url = https://github.com/xAlisher/cord-basecamp
+[submodule "submodules/keycard-basecamp"]
+	path = submodules/keycard-basecamp
+	url = https://github.com/xAlisher/keycard-basecamp
+[submodule "submodules/receiver-basecamp"]
+	path = submodules/receiver-basecamp
+	url = https://github.com/xAlisher/receiver-basecamp
+[submodule "submodules/ia-basecamp"]
+	path = submodules/ia-basecamp
+	url = https://github.com/xAlisher/ia-basecamp
+	branch = main
+[submodule "submodules/soulseek-basecamp"]
+	path = submodules/soulseek-basecamp
+	url = https://github.com/xAlisher/soulseek-basecamp
+[submodule "submodules/soulseek-ui"]
+	path = submodules/soulseek-ui
+	url = https://github.com/xAlisher/soulseek-ui
+[submodule "submodules/logos-hello-module"]
+	path = submodules/logos-hello-module
+	url = https://github.com/dlipicar/logos-hello-module
+[submodule "submodules/logos-hello-ui"]
+	path = submodules/logos-hello-ui
+	url = https://github.com/dlipicar/logos-hello-ui
