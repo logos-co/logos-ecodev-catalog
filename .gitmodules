@@ -60,3 +60,6 @@
 	path = submodules/booth-basecamp
 	url = https://github.com/xAlisher/booth-basecamp
 	branch = main
+[submodule "submodules/logos-snake-game"]
+	path = submodules/logos-snake-game
+	url = https://github.com/xAlisher/logos-snake-game

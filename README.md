@@ -33,6 +33,7 @@ individual catalogs, keeping only apps that are actively maintained.
 | IA | Sovereign archive follower & preservation | Alisher | [`xAlisher/ia-basecamp`](https://github.com/xAlisher/ia-basecamp) |
 | Soulseek | Soulseek music search & playlists (core + UI) | Alisher / Dario | [`xAlisher/soulseek-basecamp`](https://github.com/xAlisher/soulseek-basecamp), [`xAlisher/soulseek-ui`](https://github.com/xAlisher/soulseek-ui) |
 | Hello | Minimal universal module + QML UI; proves the release path | Dario | [`dlipicar/logos-hello-module`](https://github.com/dlipicar/logos-hello-module), [`dlipicar/logos-hello-ui`](https://github.com/dlipicar/logos-hello-ui) |
+| Snake | Snake game UI module | Alisher | [`xAlisher/logos-snake-game`](https://github.com/xAlisher/logos-snake-game) |
 | LEZ Faucet | Request a 150 LEZ testnet drop (core + UI) | Danish | [`logos-co/lez-faucet`](https://github.com/logos-co/lez-faucet) |
 | Atomic Swaps | ETH ↔ LEZ atomic swaps on the LEZ testnet (core + UI) | Danish | [`logos-co/eth-lez-atomic-swaps`](https://github.com/logos-co/eth-lez-atomic-swaps) |
 | Booth | Anonymous sovereign radio over Tor (core + UI) | Alisher | [`xAlisher/booth-basecamp`](https://github.com/xAlisher/booth-basecamp) |
