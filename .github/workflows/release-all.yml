@@ -37,9 +37,23 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          # Every `path = submodules/<repo>` entry in .gitmodules.
-          paths="$(git config --file .gitmodules --get-regexp 'submodule\..*\.path$' 2>/dev/null \
-                   | awk '{print $2}' | sort -u || true)"
+          # The per-module workflows are the registry — a multi-module
+          # repo contributes one module_path per module. Submodules not
+          # covered by any workflow fall back to their root path (the
+          # old .gitmodules-only discovery).
+          wf="$(grep -hE '^ +module_path: submodules/' .github/workflows/release-*.yml 2>/dev/null \
+                | awk '{print $2}' || true)"
+          subs="$(git config --file .gitmodules --get-regexp 'submodule\..*\.path$' 2>/dev/null \
+                  | awk '{print $2}' || true)"
+          uncovered=""
+          for s in ${subs}; do
+            hit=""
+            for w in ${wf}; do
+              case "${w}" in "${s}"|"${s}"/*) hit=1; break;; esac
+            done
+            if [ -z "${hit}" ]; then uncovered="${uncovered} ${s}"; fi
+          done
+          paths="$(printf '%s\n' ${wf} ${uncovered} | sed '/^$/d' | sort -u || true)"
           if [ -z "${paths}" ]; then
             echo 'matrix={"module_path":[]}' >> "$GITHUB_OUTPUT"
             echo 'count=0' >> "$GITHUB_OUTPUT"

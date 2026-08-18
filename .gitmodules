@@ -50,3 +50,13 @@
 [submodule "submodules/logos-hello-ui"]
 	path = submodules/logos-hello-ui
 	url = https://github.com/dlipicar/logos-hello-ui
+[submodule "submodules/lez-faucet"]
+	path = submodules/lez-faucet
+	url = https://github.com/logos-co/lez-faucet
+[submodule "submodules/eth-lez-atomic-swaps"]
+	path = submodules/eth-lez-atomic-swaps
+	url = https://github.com/logos-co/eth-lez-atomic-swaps
+[submodule "submodules/booth-basecamp"]
+	path = submodules/booth-basecamp
+	url = https://github.com/xAlisher/booth-basecamp
+	branch = main

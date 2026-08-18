@@ -35,7 +35,6 @@ BRANCH="${3:-}"
 
 PATH_REL="submodules/${NAME}"
 TEMPLATE=".github/workflows/release-module.yml.template"
-WORKFLOW=".github/workflows/release-${NAME}.yml"
 
 if [ ! -f "${TEMPLATE}" ]; then
   echo "error: ${TEMPLATE} not found — run from a fork of logos-modules-release-base" >&2
@@ -54,19 +53,38 @@ else
   git submodule add "${URL}" "${PATH_REL}"
 fi
 
-echo "==> generating ${WORKFLOW}"
-sed "s/__MODULE__/${NAME}/g" "${TEMPLATE}" > "${WORKFLOW}"
+# One workflow per module: metadata.json at the repo root, or one per
+# subdirectory holding one (multi-module repo).
+MODULES=""
+if [ -f "${PATH_REL}/metadata.json" ]; then
+  MODULES="${NAME}"
+else
+  for m in "${PATH_REL}"/*/metadata.json; do
+    [ -f "${m}" ] || continue
+    MODULES="${MODULES} ${NAME}/$(basename "$(dirname "${m}")")"
+  done
+fi
+if [ -z "${MODULES// /}" ]; then
+  echo "error: no metadata.json in ${PATH_REL} (root or one level down)" >&2
+  exit 1
+fi
+
+for MOD in ${MODULES}; do
+  WORKFLOW=".github/workflows/release-$(echo "${MOD}" | tr / -).yml"
+  echo "==> generating ${WORKFLOW}"
+  sed "s|__MODULE__|${MOD}|g" "${TEMPLATE}" > "${WORKFLOW}"
+done
 
 cat <<EOF
 
 Done. Next:
 
-  git add .gitmodules "${PATH_REL}" "${WORKFLOW}"
+  git add .gitmodules "${PATH_REL}" .github/workflows/
   git commit -m "Add ${NAME}"
   git push
 
 Then publish it:
-  - Actions tab → "Release ${NAME}" → Run workflow
+  - Actions tab → "Release ${MODULES# }" → Run workflow
   - or run "Release all modules" to (re)publish everything
 
 A new release is cut whenever you bump the submodule pointer
