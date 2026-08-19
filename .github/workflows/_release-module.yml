@@ -52,7 +52,9 @@ permissions:
 
 jobs:
   release:
-    uses: logos-co/logos-modules-release-action/.github/workflows/release.yml@v1
+    # Pinned to v1.3 (nested module_path support) until the v1 moving
+    # tag is advanced past it.
+    uses: logos-co/logos-modules-release-action/.github/workflows/release.yml@v1.3
     with:
       module_path: ${{ inputs.module_path }}
 
